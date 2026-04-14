@@ -35,10 +35,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-![Video Walkthrough](http://i.imgur.com/link/to/your/gif/file.gif)
+![Video Walkthrough](https://imgur.com/a/xADjXy0)
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  GIF tool here
+GIF created with ...  ScreenPal
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows

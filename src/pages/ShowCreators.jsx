@@ -21,18 +21,28 @@ export default function ShowCreators() {
   }
 
   return (
-    <div>
-      <h1>Creatorverse</h1>
-      <Link to="/add">
-        <button>Add Creator</button>
-      </Link>
+    <div className="app-shell">
+      <header className="page-header">
+        <div>
+          <h1 className="page-title">Creatorverse</h1>
+          <p className="page-subtitle">Manage your favorite content creators.</p>
+        </div>
+
+        <Link to="/add" role="button">
+          Add Creator
+        </Link>
+      </header>
 
       {creators.length === 0 ? (
-        <p>No creators found.</p>
+        <article className="empty-state">
+          <p>No creators found yet. Add your first creator.</p>
+        </article>
       ) : (
-        creators.map((creator) => (
-          <CreatorCard key={creator.id} creator={creator} />
-        ))
+        <div className="creator-grid">
+          {creators.map((creator) => (
+            <CreatorCard key={creator.id} creator={creator} />
+          ))}
+        </div>
       )}
     </div>
   );

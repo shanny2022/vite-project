@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { supabase } from '../client';
@@ -26,21 +25,29 @@ export default function ViewCreator() {
     }
   }
 
-  if (!creator) return <p>Loading...</p>;
+  if (!creator) return <div className="app-shell"><p>Loading...</p></div>;
 
   return (
-    <div>
-      <h1>{creator.name}</h1>
-      {creator.imageURL && <img src={creator.imageURL} alt={creator.name} style={{ width: '300px' }} />}
-      <p>
-        <a href={creator.url} target="_blank" rel="noreferrer">
-          Visit Channel
-        </a>
-      </p>
-      <p>{creator.description}</p>
-      <Link to={`/edit/${creator.id}`}>
-        <button>Edit</button>
-      </Link>
+    <div className="app-shell">
+      <article className="detail-card">
+        {creator.imageURL && <img src={creator.imageURL} alt={creator.name} />}
+        <h1>{creator.name}</h1>
+        <p>
+          <a href={creator.url} target="_blank" rel="noreferrer">
+            Visit Channel ↗
+          </a>
+        </p>
+        <p>{creator.description}</p>
+
+        <div className="creator-actions">
+          <Link to={`/edit/${creator.id}`} role="button">
+            Edit Creator
+          </Link>
+          <Link to="/" role="button" className="secondary">
+            Back Home
+          </Link>
+        </div>
+      </article>
     </div>
   );
 }

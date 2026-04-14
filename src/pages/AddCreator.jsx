@@ -32,41 +32,35 @@ export default function AddCreator() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="app-shell form-card">
       <h1>Add Creator</h1>
 
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={formData.name}
-        onChange={handleChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
+        <input id="name" type="text" name="name" value={formData.name} onChange={handleChange} />
 
-      <input
-        type="text"
-        name="url"
-        placeholder="URL"
-        value={formData.url}
-        onChange={handleChange}
-      />
+        <label htmlFor="url">URL</label>
+        <input id="url" type="url" name="url" value={formData.url} onChange={handleChange} />
 
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={formData.description}
-        onChange={handleChange}
-      />
+        <label htmlFor="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+        />
 
-      <input
-        type="text"
-        name="imageURL"
-        placeholder="Image URL"
-        value={formData.imageURL}
-        onChange={handleChange}
-      />
+        <label htmlFor="imageURL">Image URL</label>
+        <input
+          id="imageURL"
+          type="url"
+          name="imageURL"
+          value={formData.imageURL}
+          onChange={handleChange}
+        />
 
-      <button type="submit">Add Creator</button>
-    </form>
+        <button type="submit">Add Creator</button>
+      </form>
+    </div>
   );
 }

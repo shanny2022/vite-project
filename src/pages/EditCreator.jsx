@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../client';
@@ -48,10 +47,7 @@ export default function EditCreator() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const { error } = await supabase
-      .from('creators')
-      .update(formData)
-      .eq('id', id);
+    const { error } = await supabase.from('creators').update(formData).eq('id', id);
 
     if (error) {
       console.error(error);
@@ -71,37 +67,29 @@ export default function EditCreator() {
   }
 
   return (
-    <div>
+    <div className="app-shell form-card">
       <h1>Edit Creator</h1>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
+        <label htmlFor="name">Name</label>
+        <input id="name" type="text" name="name" value={formData.name} onChange={handleChange} />
 
-        <input
-          type="text"
-          name="url"
-          placeholder="URL"
-          value={formData.url}
-          onChange={handleChange}
-        />
+        <label htmlFor="url">URL</label>
+        <input id="url" type="url" name="url" value={formData.url} onChange={handleChange} />
 
+        <label htmlFor="description">Description</label>
         <textarea
+          id="description"
           name="description"
-          placeholder="Description"
           value={formData.description}
           onChange={handleChange}
         />
 
+        <label htmlFor="imageURL">Image URL</label>
         <input
-          type="text"
+          id="imageURL"
+          type="url"
           name="imageURL"
-          placeholder="Image URL"
           value={formData.imageURL}
           onChange={handleChange}
         />
@@ -109,7 +97,7 @@ export default function EditCreator() {
         <button type="submit">Update Creator</button>
       </form>
 
-      <button onClick={handleDelete} style={{ marginTop: '1rem', color: 'red' }}>
+      <button className="secondary" onClick={handleDelete} style={{ marginTop: '1rem' }}>
         Delete Creator
       </button>
     </div>
